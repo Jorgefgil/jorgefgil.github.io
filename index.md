@@ -1,11 +1,7 @@
 ---
 layout: default
-title: "Bienvenidos a Mi Blog"
+title: "Jorge Felipe Gil AWS"
 ---
-
-# Mi Blog de Proyectos
-
-¡Bienvenidos a mi blog donde comparto todos mis proyectos!
 
 ## Proyectos Recientes:
 1. [Proyecto 1: Detección de Anomalías](proyecto1.md)
