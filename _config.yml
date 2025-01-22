@@ -1,0 +1,17 @@
+# Configuración básica de Jekyll
+title: Mi Blog de Proyectos
+description: "Este es un blog donde comparto mis proyectos realizados con AWS."
+author: Tu Nombre
+url: https://username.github.io  # Reemplaza con tu nombre de usuario
+
+# Configuración del tema (si usas un tema de Jekyll)
+theme: jekyll-theme-cayman
+
+# Directorios y archivos
+markdown: kramdown
+permalink: /:categories/:title/
+
+# Otras configuraciones
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
