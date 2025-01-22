@@ -1,4 +1,4 @@
-# Mis Proyectos en AWS
+# Proyectos en AWS
 
 Bienvenidos a mi blog donde comparto los proyectos interesantes que he realizado utilizando servicios de AWS.
 
