@@ -24,4 +24,4 @@ En este proyecto, creamos un sistema de monitoreo para detectar anomalías en lo
 
 ## Repositorio de Código
 
-Puedes revisar el código y la documentación completa de este proyecto en [este repositorio](https://github.com/username/proyecto1).
+Puedes revisar el código utilizado en este proyecto en [este repositorio](https://github.com/username/proyecto1).
