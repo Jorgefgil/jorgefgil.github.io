@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Jorge Felipe Gil AWS"
+title: "Proyectos AWS"
 ---
 
 ## Proyectos Recientes:
