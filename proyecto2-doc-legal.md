@@ -40,7 +40,7 @@ La función Lambda se activará automáticamente cuando un documento sea cargado
 
    **Código de ejemplo (lambda_function.py)**:
    
-   [EN GITHUB]
+  Puedes revisar el código utilizado en este proyecto en [este repositorio](https://github.com/username/proyecto1).
 
 3. **Configuración de Lambda**:
    - Configura un trigger en la consola de S3 para que la función Lambda se active cuando un documento sea cargado en el bucket de S3.
