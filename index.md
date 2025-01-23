@@ -8,4 +8,4 @@ title: "Proyectos AWS"
 2. [Clasificación de documentos legales usando IA](proyecto2-doc-legal.md)
 3. [Reconocimiento de imágenes para seguridad con IA](proyecto3-rec-caras.md)
 
-[Texto alternativo](/Capturadepantalla.png)
+[Diagrama de la arquitectura](/Capturadepantalla.png)
