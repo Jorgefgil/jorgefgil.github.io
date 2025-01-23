@@ -1,0 +1,74 @@
+import boto3
+import re
+import json
+
+# Clientes de AWS
+cloudwatch_client = boto3.client('logs')
+sns_client = boto3.client('sns')
+s3_client = boto3.client('s3')
+
+SNS_TOPIC_ARN = 'arn:aws:sns:REGION:ACCOUNT_ID:YourSNSTopic'
+S3_BUCKET_NAME = 'your-s3-bucket-for-anomalies'
+
+def lambda_handler(event, context):
+    try:
+        # Obtener el grupo de logs y el nombre del stream desde el evento de CloudWatch
+        log_group = event['Records'][0]['eventSourceARN'].split(':')[-1]
+        log_stream = event['Records'][0]['logStreamName']
+
+        # Obtener los logs más recientes
+        response = cloudwatch_client.get_log_events(
+            logGroupName=log_group,
+            logStreamName=log_stream,
+            limit=100,
+            startFromHead=True
+        )
+
+        logs = response['events']
+        anomalies = detect_anomalies(logs)
+
+        if anomalies:
+            # Almacenar las anomalías detectadas en S3
+            s3_client.put_object(
+                Bucket=S3_BUCKET_NAME,
+                Key=f"anomalies/{log_stream}.json",
+                Body=json.dumps(anomalies)
+            )
+
+            # Enviar una notificación SNS
+            message = f"Se detectaron anomalías en los logs: {anomalies}"
+            sns_client.publish(
+                TopicArn=SNS_TOPIC_ARN,
+                Message=message,
+                Subject='Alerta: Anomalías en los Logs'
+            )
+            print(f"Anomalías detectadas y alerta enviada: {message}")
+
+    except Exception as e:
+        print(f"Error al procesar los logs: {str(e)}")
+        raise e
+
+def detect_anomalies(logs):
+    # Función para detectar patrones anómalos en los logs
+    anomalies = []
+
+    for log in logs:
+        message = log['message']
+
+        # Buscar intentos fallidos de inicio de sesión (patrón simple)
+        if re.search(r'failed login', message, re.IGNORECASE):
+            anomalies.append({
+                'type': 'Failed Login Attempt',
+                'message': message
+            })
+
+        # Buscar accesos fuera de horas normales (patrón simple)
+        if re.search(r'login at (\d{2}):(\d{2})', message):
+            hour = int(re.search(r'login at (\d{2}):(\d{2})', message).group(1))
+            if hour < 6 or hour > 22:  # Accesos fuera de las 6 AM a 10 PM
+                anomalies.append({
+                    'type': 'Unusual Login Time',
+                    'message': message
+                })
+
+    return anomalies
