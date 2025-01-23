@@ -1,5 +1,3 @@
-# Detección de Anomalías en Logs
-
 ## Descripción
 
 En este proyecto, creamos un sistema de monitoreo para detectar anomalías en los logs generados por una aplicación o servicio. Utilizamos **AWS Lambda**, **Amazon CloudWatch**, **SNS**, y **S3** para procesar los logs, detectar patrones inusuales como accesos no autorizados, y generar alertas.
