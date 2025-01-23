@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Detección de Anomalías en Logs"
+title: "Detección de Anomalías en Logs post"
 date: 2025-01-22
 categories: [proyectos]
 ---
