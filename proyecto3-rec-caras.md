@@ -1,4 +1,4 @@
-# Sistema de Reconocimiento de Imágenes para Seguridad en AWS
+# Reconocimiento de imágenes para seguridad con IA
 
 Este proyecto implementa un sistema de reconocimiento de imágenes para seguridad utilizando diversos servicios de AWS. El sistema carga imágenes desde Amazon S3, utiliza Amazon Rekognition para detectar caras en las imágenes y envía alertas si se detectan caras desconocidas. Los resultados de las detecciones se almacenan en Amazon DynamoDB y se envían notificaciones mediante Amazon SNS.
 
