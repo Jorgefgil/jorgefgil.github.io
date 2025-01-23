@@ -1,4 +1,4 @@
-# Proyecto indice: Detección de Anomalías en Logs con AWS Lambda y CloudWatch
+# Proyecto 1: Detección de Anomalías en Logs con AWS Lambda y CloudWatch
 
 ## Descripción
 
