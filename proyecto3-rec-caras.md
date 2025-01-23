@@ -10,10 +10,6 @@ Este proyecto implementa un sistema de reconocimiento de imágenes para segurida
 - **Amazon DynamoDB**: Para almacenar los resultados de las detecciones.
 - **Amazon SNS**: Para enviar notificaciones en caso de detecciones de rostros desconocidos.
 
-## Diagrama de la arquitectura que vamos a realizar
-
-[Diagrama](/Capturadepantalla.png)
-
 ## Pasos para implementar el sistema
 
 ### 1. Crear un Bucket en S3
@@ -35,7 +31,7 @@ La función Lambda será responsable de procesar las imágenes cargadas en S3, d
 
    **Código de ejemplo (lambda_function.py):**
    
-[Ejemplo de código que puedes utilizar](lambdas/reconocimiento-caras).
+[Descargar código](lambdas/reconocimiento-caras).
 
 2. Configuración de la función Lambda:
    - Asegúrate de que la función Lambda esté configurada para ejecutarse cuando se cargue una imagen en S3. Para hacer esto, puedes configurar un evento de activación desde la consola de S3.
@@ -79,6 +75,4 @@ Durante la implementación, puedes encontrar los siguientes errores comunes:
 ## Conclusión
 
 Este sistema de reconocimiento de imágenes proporciona una forma automatizada de detectar personas en imágenes cargadas a S3, almacenando los resultados en DynamoDB y enviando alertas en tiempo real. La arquitectura es escalable y aprovecha varios servicios gestionados de AWS para ofrecer un flujo de trabajo eficiente.
-
-¡Esperamos que este proyecto sea útil para mejorar la seguridad en tu entorno!
 
