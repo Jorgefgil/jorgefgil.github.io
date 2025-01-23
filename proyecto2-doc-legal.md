@@ -1,4 +1,4 @@
-# Clasificación de Documentos Legales Usando AI con AWS
+# Clasificación de documentos legales usando AI
 
 Este proyecto usa varios servicios de AWS para extraer, clasificar y almacenar metadatos de documentos legales (como contratos, acuerdos de confidencialidad, etc.) utilizando Amazon Textract, AWS Lambda, Amazon S3 y Amazon DynamoDB.
 
