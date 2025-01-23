@@ -1,4 +1,4 @@
-# Proyecto 1: Detección de Anomalías en Logs con AWS Lambda y CloudWatch
+# Detección de Anomalías en Logs con AWS Lambda y CloudWatch
 
 ## Descripción
 
