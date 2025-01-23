@@ -10,11 +10,9 @@ Este proyecto implementa un sistema de reconocimiento de imágenes para segurida
 - **Amazon DynamoDB**: Para almacenar los resultados de las detecciones.
 - **Amazon SNS**: Para enviar notificaciones en caso de detecciones de rostros desconocidos.
 
-## Requisitos
+## Diagrama de la arquitectura que vamos a realizar
 
-- **Cuenta de AWS**: Necesitarás tener acceso a una cuenta de AWS con permisos adecuados para crear y administrar los servicios mencionados.
-- **AWS CLI**: Asegúrate de tener configurada la AWS CLI en tu máquina local para poder interactuar con los servicios de AWS.
-- **IAM Role para Lambda**: Crea un rol de IAM con los permisos necesarios para acceder a S3, Rekognition, SNS y DynamoDB.
+[Diagrama](/Capturadepantalla.png)
 
 ## Pasos para implementar el sistema
 
