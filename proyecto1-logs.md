@@ -9,12 +9,9 @@ Este proyecto utiliza AWS Lambda, Amazon CloudWatch, Amazon SNS, y Amazon S3 par
 - **Amazon SNS**: Para enviar alertas cuando se detectan anomalías.
 - **Amazon S3**: Para almacenar los logs procesados y los detalles de las anomalías detectadas.
 
-## Requisitos
+## Diagrama de la arquitectura que vamos a realizar
 
-- **Cuenta de AWS**: Necesitarás una cuenta de AWS con permisos adecuados para crear y administrar los servicios mencionados.
-- **AWS CLI**: Asegúrate de tener configurada la AWS CLI en tu máquina local para interactuar con los servicios de AWS.
-- **Permisos de IAM para Lambda**: Debes contar con permisos adecuados para crear funciones Lambda que puedan interactuar con CloudWatch Logs y SNS.
-- **Aplicación generadora de logs**: Necesitarás una aplicación o servicio que esté configurado para generar logs que puedan ser almacenados en CloudWatch Logs (como errores o intentos de inicio de sesión fallidos).
+[Diagrama](/Capturadepantalla.png)
 
 ## Pasos para implementar el sistema
 
