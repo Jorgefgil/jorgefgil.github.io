@@ -1,0 +1,54 @@
+import boto3
+import json
+import logging
+
+# Inicializamos los clientes de AWS
+s3_client = boto3.client('s3')
+rekognition_client = boto3.client('rekognition')
+dynamo_client = boto3.client('dynamodb')
+sns_client = boto3.client('sns')
+
+# Configura el ARN de SNS y la tabla de DynamoDB
+SNS_TOPIC_ARN = 'arn:aws:sns:REGION:ACCOUNT_ID:MiTemaSNS'
+DYNAMO_TABLE_NAME = 'FaceDetectionResults'
+
+def lambda_handler(event, context):
+    try:
+        # Obtenemos el nombre del bucket y el nombre del archivo desde el evento de S3
+        bucket_name = event['Records'][0]['s3']['bucket']['name']
+        file_name = event['Records'][0]['s3']['object']['key']
+
+        # Llamamos a Rekognition para analizar la imagen
+        response = rekognition_client.detect_faces(
+            Image={'S3Object': {'Bucket': bucket_name, 'Name': file_name}},
+            Attributes=['ALL']
+        )
+
+        # Verificamos si se detectaron caras
+        faces_detected = response['FaceDetails']
+        print(f"Se detectaron {len(faces_detected)} caras en la imagen.")
+
+        # Si hay caras detectadas, almacenamos el resultado en DynamoDB
+        if len(faces_detected) > 0:
+            dynamo_client.put_item(
+                TableName=DYNAMO_TABLE_NAME,
+                Item={
+                    'ImageName': {'S': file_name},
+                    'FaceCount': {'N': str(len(faces_detected))}
+                }
+            )
+            print(f"Se almacenaron {len(faces_detected)} caras en DynamoDB.")
+
+            # Enviamos una notificación SNS si detectamos caras
+            sns_client.publish(
+                TopicArn=SNS_TOPIC_ARN,
+                Message=f"Se detectaron {len(faces_detected)} caras en la imagen {file_name}.",
+                Subject="Alerta de Seguridad: Cara Detectada"
+            )
+            print(f"Notificación enviada a SNS.")
+        else:
+            print("No se detectaron caras.")
+
+    except Exception as e:
+        print(f"Error al procesar la imagen: {str(e)}")
+        raise e
