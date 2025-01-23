@@ -45,7 +45,7 @@ La función Lambda deberá procesar los logs y buscar patrones anómalos, como i
 
 **Código de ejemplo (lambda_function.py):**
 
-Puedes revisar el código utilizado en este proyecto en [este repositorio](lambdas/logs).
+[Ejemplo de código que puedes utilizar](lambdas/logs).
 
 #### Configurar el trigger de Lambda:
 1. En la consola de Lambda, configura un trigger para que la función se active automáticamente cuando se registren nuevos logs en CloudWatch.
