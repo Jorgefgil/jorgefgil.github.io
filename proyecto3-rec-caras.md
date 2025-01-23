@@ -37,7 +37,7 @@ La función Lambda será responsable de procesar las imágenes cargadas en S3, d
 
    **Código de ejemplo (lambda_function.py):**
    
-Puedes revisar el código utilizado en este proyecto en [este repositorio](lambdas/reconocimiento-caras).
+[Ejemplo de código que puedes utilizar](lambdas/reconocimiento-caras).
 
 2. Configuración de la función Lambda:
    - Asegúrate de que la función Lambda esté configurada para ejecutarse cuando se cargue una imagen en S3. Para hacer esto, puedes configurar un evento de activación desde la consola de S3.
