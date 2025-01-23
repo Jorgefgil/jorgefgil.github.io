@@ -1,6 +1,6 @@
 # Detección de anomalías en logs
 
-Este proyecto utiliza AWS Lambda, Amazon CloudWatch, Amazon SNS, y Amazon S3 para configurar un sistema que monitorea los logs de actividades de una aplicación o servicio, detecta anomalías (como accesos no autorizados o errores recurrentes) y genera alertas de manera automática.
+Este proyecto utiliza diferentes recursos de AWS para configurar un sistema que monitorea los logs de actividades de una aplicación o servicio, detecta anomalías (como accesos no autorizados o errores recurrentes) y genera alertas de manera automática.
 
 ## Servicios utilizados
 
@@ -9,20 +9,15 @@ Este proyecto utiliza AWS Lambda, Amazon CloudWatch, Amazon SNS, y Amazon S3 par
 - **Amazon SNS**: Para enviar alertas cuando se detectan anomalías.
 - **Amazon S3**: Para almacenar los logs procesados y los detalles de las anomalías detectadas.
 
-## Diagrama de la arquitectura que vamos a realizar
-
-[Diagrama](/Capturadepantalla.png)
-
 ## Pasos para implementar el sistema
 
 ### 1. Configurar CloudWatch para registrar logs
 
-Lo primero es configurar CloudWatch Logs para registrar las actividades de tu aplicación o servicio. Los logs pueden ser generados por una instancia EC2 o cualquier servicio que ejecute el código de la aplicación.
+Lo primero es configurar CloudWatch Logs para registrar las actividades de tu aplicación o servicio. Los logs pueden ser generados por multitud de servicio, como por ejemplo, una instancia EC2.
 
 #### Crear un grupo de logs:
-1. Inicia sesión en la consola de AWS.
-2. Ve a CloudWatch y selecciona Logs.
-3. Crea un nuevo grupo de logs donde se almacenarán los logs generados por tu aplicación.
+1. Ve a CloudWatch y selecciona Logs.
+2. Crea un nuevo grupo de logs donde se almacenarán los logs generados por tu aplicación.
 
 #### Configurar tu aplicación para que envíe logs a CloudWatch:
 1. Si estás utilizando EC2, puedes configurar el CloudWatch Agent para recopilar y enviar logs del sistema a CloudWatch.
@@ -42,7 +37,7 @@ La función Lambda deberá procesar los logs y buscar patrones anómalos, como i
 
 **Código de ejemplo (lambda_function.py):**
 
-[Ejemplo de código que puedes utilizar](lambdas/logs).
+[Descargar código](lambdas/logs).
 
 #### Configurar el trigger de Lambda:
 1. En la consola de Lambda, configura un trigger para que la función se active automáticamente cuando se registren nuevos logs en CloudWatch.
@@ -57,7 +52,7 @@ Si Lambda detecta anomalías en los logs, se almacenarán en un bucket S3 para s
 
 #### Configurar un tema SNS:
 1. Crea un tema en SNS al que se enviarán las alertas.
-2. Configura suscriptores (como una dirección de correo electrónico o una función Lambda) para recibir las notificaciones.
+2. Configura suscriptores para recibir las notificaciones.
 
 ### 4. Probar el sistema
 
@@ -84,7 +79,5 @@ Durante la implementación, podrías encontrar los siguientes errores comunes:
 ## Conclusión
 
 Este sistema te permitirá monitorear logs de actividades en tiempo real, detectar anomalías como accesos no autorizados o errores recurrentes, y generar alertas automáticamente para que los administradores puedan tomar medidas rápidamente.
-
-¡Esperamos que este proyecto te ayude a mejorar la seguridad y la fiabilidad de tus aplicaciones!
 
 
