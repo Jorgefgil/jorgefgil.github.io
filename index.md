@@ -7,3 +7,5 @@ title: "Proyectos AWS"
 1. [Detección de anomalías en logs](proyecto1-logs.md)
 2. [Clasificación de documentos legales usando IA](proyecto2-doc-legal.md)
 3. [Reconocimiento de imágenes para seguridad con IA](proyecto3-rec-caras.md)
+
+[Texto alternativo](/Capturadepantalla.png)
