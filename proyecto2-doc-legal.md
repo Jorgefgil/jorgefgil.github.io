@@ -11,12 +11,9 @@ El objetivo es automatizar el procesamiento de documentos legales, clasificarlos
 - **Amazon S3**: Para almacenar los documentos legales que serán procesados.
 - **Amazon DynamoDB**: Para almacenar los metadatos extraídos y clasificados de los documentos.
 
-## Requisitos
+## Diagrama de la arquitectura que vamos a realizar
 
-- **Cuenta de AWS**: Necesitarás tener acceso a una cuenta de AWS con permisos adecuados para crear y administrar los servicios mencionados.
-- **AWS CLI**: Asegúrate de tener configurada la AWS CLI en tu máquina local para interactuar con los servicios de AWS.
-- **IAM Role para Lambda**: Debes crear un rol de IAM con permisos adecuados para interactuar con S3, Textract y DynamoDB.
-- **Conocimiento básico de expresiones regulares** (si se va a usar para la clasificación).
+[Diagrama](/Capturadepantalla.png)
 
 ## Pasos para implementar el sistema
 
