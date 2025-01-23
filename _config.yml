@@ -1,8 +1,8 @@
 # Configuración básica de Jekyll
-title: Mi Blog de Proyectos
-description: "Este es un blog donde comparto mis proyectos realizados con AWS."
+title: Proyectos AWS
+description: "Proyectos realizados por Jorge Felipe Gil en la nube de AWS."
 author: Tu Nombre
-url: https://username.github.io  # Reemplaza con tu nombre de usuario
+url: https://jorgefgil.github.io  # Reemplaza con tu nombre de usuario
 
 # Configuración del tema (si usas un tema de Jekyll)
 theme: jekyll-theme-cayman
