@@ -1,4 +1,4 @@
-# Detección de Anomalías en Logs con AWS Lambda y CloudWatch
+# Detección de Anomalías en logs
 
 Este proyecto utiliza AWS Lambda, Amazon CloudWatch, Amazon SNS, y Amazon S3 para configurar un sistema que monitorea los logs de actividades de una aplicación o servicio, detecta anomalías (como accesos no autorizados o errores recurrentes) y genera alertas de manera automática.
 
